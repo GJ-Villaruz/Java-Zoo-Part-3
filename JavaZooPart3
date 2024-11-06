@@ -1,0 +1,106 @@
+public class JavaZoo {
+    private String zooName = "Java Park n Zoo";
+    
+    // Attributes for ZooAnimal
+    private String animalName;
+    private String animalType;
+    private int animalAge;
+    private boolean animalHungry;
+    
+    //Attributes
+    private int cageLength;
+    private int cageWidth;
+    private int cageHeight;
+    private boolean cageClean;
+    private boolean cageCovered;
+    
+    //Attributes
+    private String keeperName;
+    private String keeperTitle;
+    private double keeperPayRate;
+    private boolean keeperDegree;
+    
+    
+
+     // Constructor overloading
+        public JavaZoo(String animalName, String animalType, int animalAge, boolean animalHungry,
+                   String keeperName, String keeperTitle, boolean keeperDegree, double keeperPayRate,
+                   int cageLength, int cageWidth, int cageHeight, boolean cageClean, boolean cageCovered) {
+                   
+            this.animalName = animalName;
+            this.animalType = animalType;
+            this.animalAge = animalAge;
+            this.animalHungry = animalHungry;
+             
+           
+             this.cageLength = cageLength;
+             this.cageWidth = cageWidth;
+             this.cageHeight = cageHeight ;
+             this.cageClean = cageClean;
+             this.cageCovered = cageCovered;
+             
+           this.keeperName = keeperName;
+             this.keeperTitle = keeperTitle;
+             this.keeperDegree = keeperDegree;
+              this.keeperPayRate= keeperPayRate ;
+             
+     }              
+           
+        
+            // Getters
+        public void animalEat() {
+        System.out.println(animalName + " is eating.");
+    }
+          public void animalEat(String food){
+           System.out.println(animalName + "is eating" + food +".");
+        }
+
+        public void animalSleep(){
+           System.out.println(animalName + "is sleeping.");
+        }
+
+          public void animalSleep(int hours){
+           System.out.println(animalName + "has sleep for hours " + hours +" hours.");
+        }
+ 
+         public void keeperFeedAnimal(String food ){
+           System.out.println(keeperName  + " is feeding a ZooAnimal.");
+        }
+        
+
+    public double keeperPayMe(int hours) {
+        return keeperPayRate * hours;
+    }
+
+    // Cage Methods
+    public void displayCageInfo() {
+        System.out.println("This cage has a " + animalType + " named " + animalName + ".");
+       
+    
+    }
+       
+    // Main method to test the implementation
+    public static void main(String[] args) {
+        
+        // Create an instance of JavaZoo with all required attributes
+        JavaZoo javaZoo = new JavaZoo(
+            "Pecanzo", "elephant", 10, true,
+            "Jesper Reed", "Senior Zookeeper", true, 15.5,
+            10, 15, 12, true, false
+        );
+
+        // Display cage info
+        javaZoo.displayCageInfo();
+
+        // Zookeeper feeds the animal
+        javaZoo.keeperFeedAnimal("peanuts");
+
+        // Calculate and display pay for Zookeeper
+        double money = javaZoo.keeperPayMe(5);
+        System.out.println("The Zookeeper was paid " + money + " dollars.");
+        
+    
+        // Make the animal sleep for 4 hours
+        javaZoo.animalSleep(9);
+    }
+} 
